@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Autotyper</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+
+            * {
+                font-family: 'Nunito', sans-serif;
+            }
+
+            body {
+                background-color: lightblue;
+                background: #ff4b1f;  /* fallback for old browsers */
+                background: linear-gradient(to right, #09d46fc9, #1fddff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            }
+
+            #demo {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%);
+                text-align: center;
+                color: white;
+                font-weight: 200;
+                font-size: 1.5rem;
+                padding: 1rem;
+            }
+
+            #demo::after{
+                content: "";
+                position: relative;
+                right: -2px;
+                border-right: 1.4px solid white;
+                animation: blink 0.7s infinite ease;
+            }
+
+            @keyframes blink{
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+                0% {
+                    opacity: 0;
+                }
+            }
+        </style>
+    </head>
+    <body onload="typeWriter()">
+        <p id="demo"></p>
+    </body>
+    <script>
+        let i = 0;
+        let text = "Hi, I am Vayun Ekbote. I am a college student and an aspiring software developer. This is one of the many ways you can create a blinking cursor effect on your website. You can get the code on my github.";
+        let speed = 75;
+        function typeWriter(){
+        if (i < text.length) {
+            document.getElementById("demo").innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+        }} 
+    </script>
+</html>
